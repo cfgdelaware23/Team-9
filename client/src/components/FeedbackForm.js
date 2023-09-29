@@ -7,19 +7,13 @@ import {
   Typography,
   Rating
 } from "@mui/material";
-import { Formik, Field, Form, ErrorMessage } from "formik";
-import { useState } from "react";
+import { Formik, Form } from "formik";
 import React from 'react';
 import '../css/FeedbackForm.css'
 
-// rate experience 
-// what did you like 
-// what did you not like 
-// any suggestions
-
 const FeedbackForm = () => {
   const initialValue = {
-    rate: 0,
+    rating: 0,
     like: "",
     notLike: "",
     suggestions: "",
@@ -27,8 +21,7 @@ const FeedbackForm = () => {
 
   const handleSubmit = (values, props) => {
     console.log(values);
-    alert(JSON.stringify(values));
-
+    // TO-DO: add backend call
     props.resetForm();
   };
 
@@ -38,52 +31,56 @@ const FeedbackForm = () => {
       <Grid item sm={6} xs={12}>
         <Paper>
           <Box m={5} p={3}>
-            <Typography variant="h5">Basic Formik Form Validation</Typography>
+            <Typography variant="h5">Give us your feedback!</Typography>
             <Formik
               initialValues={initialValue}
-              // validationSchema={YupValidation}
               onSubmit={handleSubmit}
             >
               {(props) => {
-                const { rate, like, notLike, suggestions } = props.values;
+                const { rating, like, notLike, suggestions } = props.values;
                 return (
                   <Form>
-                    {/* First Way */}
+                    <Typography>Rate your experience at Better Grocery</Typography>
                     <Rating 
                       label="rating"
-                      name="half-rating"
-                      defaultValue={rate}
+                      name="rating"
+                      value={rating}
                       precision={0.5}
+                      onChange={props.handleChange}
                       required
                     />
+                    
                     <TextField
+                      multiline
+                      fullWidth
                       label="What did you like about Better Grocery?"
                       name="like"
-                      fullWidth
                       variant="outlined"
                       margin="dense"
                       value={like}
                       onChange={props.handleChange}
-                      onBlur={props.handleBlur}
                     />
-                    {/* Second Way */}
-                    <Field
-                      as={TextField}
-                      label="What did you not like about Better Grocery?"
-                      type="notLike"
-                      name="notLike"
+                    
+                    <TextField
+                      multiline
                       fullWidth
+                      label="What did you not like about Better Grocery?"
+                      name="notLike"
                       variant="outlined"
                       margin="dense"
+                      value={notLike}
+                      onChange={props.handleChange}
                     />
 
-                    <Field
-                      as={TextField}
+                    <TextField
+                      multiline
+                      fullWidth
                       label="Any other suggestions?"
                       name="suggestions"
-                      fullWidth
                       variant="outlined"
                       margin="dense"
+                      value={suggestions}
+                      onChange={props.handleChange}
                     />
 
                     <Button
@@ -105,20 +102,5 @@ const FeedbackForm = () => {
     </Grid>
   )
 }
-  // <div className='form-box'>
-  //   <h2>Give us your feedback!</h2>
-  //   <form>
-  //     <div className = "feedback">
-  //       <label>What did you like about Better Grocery?</label>
-  //       <textarea />  
-  //       <label>What did you not like about Better Grocery?</label>      
-  //       <textarea />
-  //       <label>Any other suggestions?</label>
-  //       <textarea placeholder="suggestions"/>
-  //     </div>
-  //     <button type = "submit" id= "submitBtn" className = "submitBtn"> submit</button>
-  //   </form>
-  // </div>
-
 
 export default FeedbackForm;
