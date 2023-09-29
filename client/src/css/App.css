@@ -20,13 +20,32 @@ header {
   align-items: center;
 }
 
+leftHeader {
+  display: flex;
+  width: 50%;
+  align-items:start;
+}
+
+rightHeader {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  align-items: end;
+}
+
 content {
   display: flex;
   min-height: 800px;
+<<<<<<< HEAD
   max-width: 100%;
   justify-content: center;
   align-items: start;
   padding: 50px;
+=======
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+>>>>>>> feature/appLayout
 }
 
 footer {

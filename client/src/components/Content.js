@@ -5,8 +5,12 @@ import AboutUs from './AboutUs'
 const Content = () => {
   return (
     <content>
+<<<<<<< HEAD
       <Signup />
       <AboutUs />
+=======
+        Content
+>>>>>>> feature/appLayout
     </content>
   )
 }
