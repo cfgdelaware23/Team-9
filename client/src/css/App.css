@@ -36,16 +36,10 @@ rightHeader {
 content {
   display: flex;
   min-height: 800px;
-<<<<<<< HEAD
   max-width: 100%;
   justify-content: center;
   align-items: start;
   padding: 50px;
-=======
-  width: 100%;
-  align-items: center;
-  justify-content: center;
->>>>>>> feature/appLayout
 }
 
 footer {
