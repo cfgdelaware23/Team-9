@@ -1,5 +1,19 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700);
-
+@keyframes slideInLeft{
+  from {
+    transform: translateX(-1200px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes slideInRight {
+  from {
+    transform: translateX(1200px);
+  } to {
+    transform: translateX(0);
+  }
+}
 .App {
   margin: 0px;
   padding: 0px;
@@ -20,11 +34,44 @@ header {
   align-items: center;
 }
 
+leftHeader {
+  display: flex;
+  width: 50%;
+  align-items:start;
+  animation-name: slideInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-delay: 0.5s;
+  animation-iteration-count: 1;
+  animation-direction:normal;
+  animation-fill-mode: none;
+}
+
+rightHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  width: 50%;
+  align-items: end;
+  animation-name: slideInRight;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-delay: 0.5s;
+  animation-iteration-count: 1;
+  animation-direction:normal;
+  animation-fill-mode: none;
+}
+
 content {
   display: flex;
+  flex-direction:column;
   min-height: 800px;
-  width: 100%;
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
 }
+
 footer {
   display: flex;
   min-height:10%;
