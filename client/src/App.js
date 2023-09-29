@@ -3,7 +3,6 @@ import Content from './components/Content'
 import Footer from './components/Footer'
 import './css/App.css';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-import Aboutus from './components/Aboutus';
 
 function App() {
   return (
@@ -13,7 +12,6 @@ function App() {
         <Routes>
           <Route path = '/'>
             <Route index element = {<Content/>}/>
-            <Route path = '/aboutus' element = {<Aboutus />}/>
           </Route>
         </Routes>
         <Footer />
