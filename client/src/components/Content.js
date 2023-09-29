@@ -12,5 +12,4 @@ const Content = () => {
     </content>
   )
 }
-
 export default Content

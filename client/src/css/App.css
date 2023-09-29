@@ -7,11 +7,10 @@
     transform: translateX(0);
   }
 }
-@keyframes slideInRight{
+@keyframes slideInRight {
   from {
     transform: translateX(1200px);
-  }
-  to {
+  } to {
     transform: translateX(0);
   }
 }
@@ -53,7 +52,7 @@ rightHeader {
   flex-direction: row;
   justify-content: end;
   width: 50%;
-  
+  align-items: end;
   animation-name: slideInRight;
   animation-duration: 1s;
   animation-timing-function: ease-out;
