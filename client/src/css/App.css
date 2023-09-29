@@ -12,6 +12,7 @@
 
 header {
   display: flex;
+  flex-direction: row;
   min-height:10%;
   width: 100%;
   font-size: 30px;
@@ -24,7 +25,10 @@ content {
   display: flex;
   min-height: 800px;
   width: 100%;
+  align-items: center;
+  justify-content: center;
 }
+
 footer {
   display: flex;
   min-height:10%;
