@@ -1,11 +1,13 @@
 import React from 'react'
+import FeedbackForm from './FeedbackForm'
 
 const Content = () => {
   return (
-    <content>
-        Content
-    </content>
+     <content>
+        <a id = "feedbackForm">
+          <FeedbackForm />
+        </a>
+      </content>
   )
 }
-
 export default Content

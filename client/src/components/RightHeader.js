@@ -1,5 +1,6 @@
 import React from 'react'
-import {BrowserRouter as Router, Routes, Route, NavLink} from 'react-router-dom'
+import FeedbackForm from './FeedbackForm';
+import {BrowserRouter as Router, Routes, Route, NavLink, Link} from 'react-router-dom'
 
 const RightHeader = () => {
   return (
@@ -7,7 +8,8 @@ const RightHeader = () => {
         <NavLink to = 'aboutus'>
             About Us
         </NavLink>
-    </rightHeader>
+        <Link to='/#feedbackForm'> Here </Link>
+    </rightHeader> 
   )
 }
 
