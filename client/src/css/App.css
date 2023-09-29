@@ -12,13 +12,25 @@
 
 header {
   display: flex;
-  flex-direction: row;
   min-height:10%;
   width: 100%;
   font-size: 30px;
   background-color: #d0f2f0;
   justify-content: center;
   align-items: center;
+}
+
+leftHeader {
+  display: flex;
+  width: 50%;
+  align-items:start;
+}
+
+rightHeader {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  align-items: end;
 }
 
 content {

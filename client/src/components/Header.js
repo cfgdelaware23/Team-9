@@ -1,14 +1,12 @@
 import React from 'react'
-import AboutUs from './Aboutus'
-import {BrowserRouter as Router, Routes, Route, NavLink} from 'react-router-dom'
+import LeftHeader from './LeftHeader'
+import RightHeader from './RightHeader'
 
 const Header = () => {
     return (
         <header>
-            <img src = '../wellfareLogo.png' alt = "Wellfare Logo"/>
-            <NavLink to = 'aboutus'>
-                About Us
-            </NavLink>
+            <LeftHeader />
+            <RightHeader />
         </header>
   )
 }
