@@ -1,12 +1,14 @@
 import React from 'react'
 import Signup from './Signup'
-import AboutUs from './AboutUs'
+import Aboutus from './Aboutus'
+import FeedbackForm from './FeedbackForm'
 
 const Content = () => {
   return (
     <content>
       <Signup />
-      <AboutUs />
+      <Aboutus />
+      <FeedbackForm />
     </content>
   )
 }
