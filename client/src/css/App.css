@@ -23,8 +23,12 @@ header {
 content {
   display: flex;
   min-height: 800px;
-  width: 100%;
+  max-width: 100%;
+  justify-content: center;
+  align-items: start;
+  padding: 50px;
 }
+
 footer {
   display: flex;
   min-height:10%;
