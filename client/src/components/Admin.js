@@ -4,11 +4,10 @@ import AdminCheckout from './AdminCheckout'
 import Validate from './Validate'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 
-const Admin = ({discount}) => {
+const Admin = () => {
   const navigate = useNavigate()
-  const [id, setID] = useState()
+  const [memberID, setMemberID] = useState()
   const handleSubmitID = async(e) => {
-    e.prevendDefault()
     // Put API Call here
   }
   return (
@@ -49,8 +48,8 @@ const Admin = ({discount}) => {
                             type='text'
                             placeholder='Membership ID here...'
                             required
-                            value={id}
-                            onChange={(e) => setID(e.target.value)}
+                            value={memberID}
+                            onChange={(e) => setMemberID(e.target.value)}
                         />
                         <Button class='submitButton' type='submit' onClick={() => handleSubmitID()}>
                             Submit!
@@ -58,6 +57,7 @@ const Admin = ({discount}) => {
                     </form>
                 }/>
             <Route path = 'validate' element = {<Validate />}/>
+            <Route path = 'checkout' element = {<AdminCheckout memberID = {memberID} />}/>
     </Routes>
     
   )

@@ -1,3 +1,31 @@
-admin-checkout {
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.admin-checkout {
+    display:grid;
+    grid-auto-flow: row;
+    grid-auto-columns: 1 1 1 1 1;
+    gap:1rem;
+    min-height:80vh;
+    min-width:1000px;
+  
+    grid-template-areas:
+      "mn mn mn mn sb"
+      "mn mn mn mn sb"
+      "mn mn mn mn sb"
+      "mn mn mn mn sb";
+}
+
+.main {
+    grid-area:mn;
+    display: flex;
     
+}
+
+.sidebar {
+    grid-area:sb;
+    font-family: 'Courier New', Courier, monospace;
 }
