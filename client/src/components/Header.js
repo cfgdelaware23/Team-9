@@ -4,10 +4,10 @@ import RightHeader from './RightHeader'
 
 const Header = () => {
     return (
-        <header>
+        <div className='header'>
             <LeftHeader />
             <RightHeader />
-        </header>
+        </div>
   )
 }
 

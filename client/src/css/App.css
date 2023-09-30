@@ -25,7 +25,7 @@
   background-color: white;
 }
 
-header {
+.header {
   display: flex;
   min-height: 10%;
   width: 100%;
@@ -38,6 +38,7 @@ header {
 .leftHeader {
   display: flex;
   width: 50%;
+  margin-left: 10px;
   align-items: start;
   animation-name: slideInLeft;
   animation-duration: 1s;
@@ -73,7 +74,7 @@ header {
   padding: 50px;
 }
 
-footer {
+.footer {
   display: flex;
   min-height: 10%;
   width: 100%;
