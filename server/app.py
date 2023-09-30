@@ -26,6 +26,7 @@ mongo = PyMongo(app)
 
 
 @app.route('/users', methods=['GET'])
+@cross_origin(origins="*")
 def get_users():
     users = mongo.db.users.find()
     user_list = [user for user in users]
@@ -35,6 +36,7 @@ def get_users():
 
 
 @app.route('/user/<id>', methods=['GET'])
+@cross_origin(origins="*")
 def get_user(id):
     user = mongo.db.users.find_one({"membership_id": id})
     if user:
@@ -65,6 +67,7 @@ def add_user():
 
 
 @app.route('/check_qualify/<membership_id>', methods=['GET'])
+@cross_origin(origins="*")
 def check_qualify(membership_id):
     user = mongo.db.users.find_one({"membership_id": membership_id})
     if not user:
@@ -85,6 +88,7 @@ def get_discounted_price_and_savings(original_price, qualifies_for_discount):
 
 
 @app.route('/add_purchase/<id>', methods=['POST'])
+@cross_origin(origins="*")
 def add_purchase(id):
     user = mongo.db.users.find_one({"membership_id": id})
     if not user:
@@ -114,6 +118,7 @@ def add_purchase(id):
     }), 201
 
 @app.route('/submit_feedback', methods=['POST'])
+@cross_origin(origins="*")
 def submit_feedback():
     data = request.json
     required_fields = ['like', 'notLike', 'rating', 'suggestions']
