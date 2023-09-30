@@ -9,8 +9,13 @@ const Landing = () => {
 
   return (
     <div>
-      <Signup />
-      <Aboutus />
+      <section>
+        <Signup />
+      </section>
+      <section>
+        <Aboutus />
+      </section>
+      
       <FeedbackForm setOpenToast={setOpenToast}/>
 
       <Snackbar

@@ -3,8 +3,6 @@ import '../css/Signup.css'
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom'
 
-
-
 function Signup() {
   const navigate = useNavigate()
   function handleSignUp() {
@@ -16,16 +14,40 @@ function Signup() {
     <div className='signup-container'>
         <Button variant="contained" size='large' color='primary'
         sx={{
-            width: 300,
-            height: 75
+            width: 500,
+            height: 150
         }}
         style={{
             backgroundColor: "#21b6ae",
         }}
         onClick={() => {handleSignUp()}}
-        >Sign Up</Button>
-
+        >
+        <div class = "affordable-container">
+          <div class = "affordable-text">
+            <div class = "s">S</div>
+            <div class = "i">i</div>
+            <div class = "g">g</div>
+            <div class = "n">n</div>
+            <div class = "u">U</div>
+            <div class = "p">p</div>
+          </div>
+        </div>
+        </Button>
+        <div className = "moving-text-container">
+          <div className="leftText">
+            <h3>
+              We Are...
+            </h3>
+          </div>
+          <div className="rightText">
+            <h3>
+              Wellfare Groceries
+            </h3>
+          </div>
+        </div>
+        
     </div>
+    
   )
 }
 

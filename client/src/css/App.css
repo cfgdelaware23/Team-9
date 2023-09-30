@@ -23,6 +23,7 @@
 		opacity: 1;
 	}
 }
+
 .App {
   margin: 0px;
   padding: 0px;
@@ -110,5 +111,8 @@
   width: 50%;
   justify-content:center;
   align-items: center;
+}
 
+section {
+  min-height: 80vh;
 }
