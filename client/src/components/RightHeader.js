@@ -1,17 +1,16 @@
 import React from 'react'
-import {BrowserRouter as Router, Routes, Route, NavLink, Link} from 'react-router-dom'
 import '../css/HeaderButtons.css'
 
 const RightHeader = () => {
   return (
-    <rightHeader>
-        <headerButton onClick={(e) => {e.preventDefault(); window.location.replace("/#aboutus")}}>
+    <div className="rightHeader">
+        <button className="headerButton" type="button" onClick={(e) => {e.preventDefault(); window.location.replace("/#aboutus")}}>
             About Us
-        </headerButton>
-        <headerButton onClick={(e) => {e.preventDefault(); window.location.replace("/#feedbackForm")}}>
+        </button>
+        <button className="headerButton" type="button" onClick={(e) => {e.preventDefault(); window.location.replace("/#feedbackForm")}}>
             Feedback!
-        </headerButton>
-    </rightHeader>
+        </button>
+    </div>
   )
 }
 
