@@ -159,7 +159,7 @@ const Application = () => {
             </Formik>
           </Box>
           {statusCode === 401 && <Alert severity="error">Error: User already exists!</Alert>}
-          {statusCode === 201 && <Alert severity="success">You have been signed up, your id is {memberId}!</Alert>}
+          {statusCode === 201 && <Alert severity="success">You have been signed up, your member ID is {memberId}!</Alert>}
         </Paper>
       </Grid>
       <Grid item sm={3} xs={false}></Grid>
