@@ -13,6 +13,7 @@ class User:
         self.phoneNumber = phoneNumber
         self.email = email
         self.age = age
+        self.purchase_history = []
         self.familySize = familySize
         self.qualify_discount = self.check_qualify_discount()
         self.user_hash = hashlib.sha256((firstName + lastName + address).encode()).hexdigest()
@@ -20,6 +21,9 @@ class User:
     def generate_membership_id(self):
         # Generates a random 6-digit ID. Later I will ensure it is unique in our database
         return str(random.randint(100000, 999999))
+    
+    def add_purchase(self, purchase):
+        self.purchase_history.append(purchase)
 
     def check_qualify_discount(self):
         if self.snap or (self.familySize and int(self.familySize) > 4):

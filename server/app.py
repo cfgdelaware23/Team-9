@@ -7,13 +7,15 @@ import datetime
 app = Flask(__name__)
 
 # MongoDB configuration
-app.config["MONGO_URI"] = "mongodb+srv://USER:PW@cluster0.54cmzes.mongodb.net/People"
+app.config["MONGO_URI"] = "placeholder"
 mongo = PyMongo(app)
 
 @app.route('/users', methods=['GET'])
 def get_users():
     users = mongo.db.users.find()
     user_list = [user for user in users]
+    for user in user_list:
+        user.pop('_id', None)
     return jsonify(user_list)
 
 @app.route('/user/<id>', methods=['GET'])
