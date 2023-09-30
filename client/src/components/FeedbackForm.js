@@ -45,7 +45,7 @@ const FeedbackForm = () => {
                     <Rating 
                       label="rating"
                       name="rating"
-                      value={rating}
+                      value={Number(rating)}
                       precision={0.5}
                       onChange={props.handleChange}
                       required

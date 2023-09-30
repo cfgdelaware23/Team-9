@@ -1,5 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700);
-@keyframes slideInLeft{
+@keyframes slideInLeft {
   from {
     transform: translateX(-1200px);
   }
@@ -10,7 +10,8 @@
 @keyframes slideInRight {
   from {
     transform: translateX(1200px);
-  } to {
+  }
+  to {
     transform: translateX(0);
   }
 }
@@ -18,7 +19,7 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -26,7 +27,7 @@
 
 header {
   display: flex;
-  min-height:10%;
+  min-height: 10%;
   width: 100%;
   font-size: 30px;
   background-color: #d0f2f0;
@@ -34,20 +35,20 @@ header {
   align-items: center;
 }
 
-leftHeader {
+.leftHeader {
   display: flex;
   width: 50%;
-  align-items:start;
+  align-items: start;
   animation-name: slideInLeft;
   animation-duration: 1s;
   animation-timing-function: ease-out;
   animation-delay: 0.5s;
   animation-iteration-count: 1;
-  animation-direction:normal;
+  animation-direction: normal;
   animation-fill-mode: none;
 }
 
-rightHeader {
+.rightHeader {
   display: flex;
   flex-direction: row;
   justify-content: end;
@@ -58,13 +59,13 @@ rightHeader {
   animation-timing-function: ease-out;
   animation-delay: 0.5s;
   animation-iteration-count: 1;
-  animation-direction:normal;
+  animation-direction: normal;
   animation-fill-mode: none;
 }
 
-content {
+.content {
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   min-height: 800px;
   max-width: 100%;
   justify-content: center;
@@ -74,7 +75,7 @@ content {
 
 footer {
   display: flex;
-  min-height:10%;
+  min-height: 10%;
   width: 100%;
   font-size: 30px;
   background-color: #d0f2f0;
