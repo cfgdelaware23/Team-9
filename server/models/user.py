@@ -1,6 +1,5 @@
 import uuid
 import random
-import requests
 import hashlib
 
 class User:
