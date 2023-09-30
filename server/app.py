@@ -66,6 +66,25 @@ def add_user():
     return jsonify({"message": "User added successfully", "membership_id": user.membership_id}), 201
 
 
+@app.route('/delete_user/<membership_id>', methods=['DELETE'])
+def delete_user(membership_id):
+    user = mongo.db.users.find_one({"membership_id": membership_id})
+    if not user:
+        response = {
+            "error": "User not found",
+            "status_code": 404
+        }
+        return jsonify(response), 404
+
+    mongo.db.users.delete_one({"membership_id": membership_id})
+
+    response = {
+        "message": f"User with membership ID {membership_id} deleted successfully",
+        "status_code": 200
+    }
+    return jsonify(response), 200
+
+
 @app.route('/check_qualify/<membership_id>', methods=['GET'])
 @cross_origin(origins="*")
 def check_qualify(membership_id):
