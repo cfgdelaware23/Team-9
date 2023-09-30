@@ -9,11 +9,7 @@ function App() {
     <div className = 'App'>
       <Router>
         <Header />
-        <Routes>
-          <Route path = '/'>
-            <Route index element = {<Content/>}/>
-          </Route>
-        </Routes>
+        <Content />
         <Footer />
       </Router>
     </div>

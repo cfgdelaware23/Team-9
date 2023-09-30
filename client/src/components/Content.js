@@ -1,14 +1,20 @@
 import React from 'react'
-import Signup from './Signup'
-import Aboutus from './Aboutus'
-import FeedbackForm from './FeedbackForm'
+import Landing from './Landing'
+import Application from './Application'
+import { Route, Routes} from 'react-router-dom'
 
 const Content = () => {
   return (
     <div className='content'>
-      <Signup />
-      <Aboutus />
-      <FeedbackForm />
+      <Routes>
+        <Route path = '/'>
+          <Route index element = {<Landing />}/>
+          <Route path = '/signup' element = {<Application />} />
+        </Route>
+      </Routes>
+      
+      
+      
     </div>
   )
 }
