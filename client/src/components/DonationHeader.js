@@ -2,7 +2,6 @@ import React from 'react'
 import '../css/App.css'
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 import DonationForm from './DonationForm';
 
 

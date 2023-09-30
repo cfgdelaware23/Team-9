@@ -7,9 +7,8 @@ import {
   Typography,
   Rating
 } from "@mui/material";
-import { Formik, Form, ErrorMessage } from "formik";
+import { Formik, Form } from "formik";
 import React from 'react';
-import * as Yup from 'yup';
 
 const FeedbackForm = ({ setOpenToast }) => {
   const initialValue = {
@@ -22,16 +21,16 @@ const FeedbackForm = ({ setOpenToast }) => {
   const handleSubmit = (values, props) => {
     console.log(values);
     // TO-DO: add backend call
-    // fetch(`https://api.github.com/users/eunit99/repos`)
-    //   .then(res => res.json())
-    //   .then(
-    //     (_) => {
-    //       setOpenToast([true, false])
-    //     },
-    //     (error) => {
-    //       setOpenToast([false, true])
-    //     }
-    //   )
+    fetch(`https://api.github.com/users/eunit99/repos`)
+      .then(res => res.json())
+      .then(
+        (_) => {
+          setOpenToast([true, false])
+        },
+        (error) => {
+          setOpenToast([false, true])
+        }
+      )
     props.resetForm();
   };
 
