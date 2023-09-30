@@ -32,10 +32,10 @@ const Application = () => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(applicationState)
         };
-        // const response = await fetch('https://api.github.com/users/eunit99/repos', requestOptions);
-        // const data = await response.json();
-        setStatusCode(201)
-        setMemberId(1000)
+        const response = await fetch('http://127.0.0.1:5000/add_user', requestOptions);
+        const data = await response.json();
+        setStatusCode(response.status)
+        setMemberId(data.membership_id)
         console.log(applicationState)
         // TO-DO: add backend call
         props.resetForm();
