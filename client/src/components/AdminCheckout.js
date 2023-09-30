@@ -75,8 +75,8 @@ const AdminCheckout = ({memberID, items, setItems}) => {
   return (
 
     <div className='admin-checkout'>
-
       <div class = "scan">
+        <h1 className = 'checkout-headers'>Scan </h1>
         <form>
           <TextField 
             autoFocus
@@ -98,8 +98,8 @@ const AdminCheckout = ({memberID, items, setItems}) => {
               Go to Checkout
           </Button>
       </div>
-      
       <div class = "main">
+      <h1 className = 'checkout-headers'> Purchase History </h1>
          {items.length ? (
             <ListItem items = {items}/>
          ) : (
@@ -107,6 +107,7 @@ const AdminCheckout = ({memberID, items, setItems}) => {
          )}
       </div> 
       <div class = "sidebar"> 
+        <h1 className = 'checkout-headers'> Receipt </h1>
         <div> 
           {dateTime} 
         </div>

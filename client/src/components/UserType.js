@@ -1,5 +1,6 @@
 import React from 'react'
 import '../css/ContentButtons.css'
+import '../css/UserType.css'
 import { useNavigate } from 'react-router-dom'
 
 const UserType = () => {
