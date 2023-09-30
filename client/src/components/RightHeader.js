@@ -22,6 +22,13 @@ const RightHeader = () => {
             Feedback!
         </button>
         <DonationHeader/>
+        <button 
+          className="headerButton" 
+          type="button" 
+          onClick={(e) => {e.preventDefault()
+          navigate('/usertype')}}>
+            Admin
+        </button>
     </div>
   )
 }

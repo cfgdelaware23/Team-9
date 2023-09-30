@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from 'react'
 import ListItem from './ListItem'
 import { Button, TextField } from '@mui/material'
+import {useNavigate} from 'react-router-dom'
 import '../css/AdminCheckout.css'
 
 const AdminCheckout = ({memberID, items, setItems}) => {
@@ -9,6 +10,7 @@ const AdminCheckout = ({memberID, items, setItems}) => {
   const [currSum, setCurrSum] = useState(0)
   const [currSession, setCurrSession] = useState([])
   const dateTime = `${format(new Date(), 'MM/dd/yyyy\tHH:mm:ss')}`
+  const navigate = useNavigate()
 
   const handleSubmitCurrItem = async(e) => {
     const newItem = {item: currItem, total: 100}
@@ -75,11 +77,10 @@ const AdminCheckout = ({memberID, items, setItems}) => {
     <div className='admin-checkout'>
 
       <div class = "scan">
-        Scan
         <form>
           <TextField 
             autoFocus
-            className='auth-form'
+            className='itemForm'
             id='addText'
             type='text'
             placeholder='Item here...'
@@ -92,6 +93,9 @@ const AdminCheckout = ({memberID, items, setItems}) => {
         </form>
           <Button class='submitButton' type='submit' onClick={(e) =>{e.preventDefault(); handleDeleteCurrItem()}}>
               Delete Last Added Item
+          </Button>
+          <Button class='submitButton' type='submit' onClick={(e) =>{e.preventDefault(); navigate('/usertype')}}>
+              Go to Checkout
           </Button>
       </div>
       
