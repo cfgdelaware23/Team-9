@@ -23,4 +23,6 @@ The application allows and end-to-end cycle of customer to cashier friendly user
 2. `cd Team-9` in Terminal
 3. navigate to client folder and run `npm install`
 4. Once packages have been installed run `npm start` to run front-end
-5. Navigate back to server and run `flask run`
+5. Open another termincal and navigate to server and run `pip3 install -r requirements.txt`
+6. Finally start the server with `flask run`
+7. Congratulations you can now use The Wilmington Project!
