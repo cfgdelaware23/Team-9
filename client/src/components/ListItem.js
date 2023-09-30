@@ -3,8 +3,8 @@ import LineItem from './LineItem'
 const ListItem = ({items}) => {
   return (
     <ul>
-      {items.map((item) => (
-        <LineItem key = {item.id} item = {item}/>
+      {items.map((curr) => (
+        <LineItem key = {curr.id} item = {curr}/>
       ))}
     </ul>
   )
