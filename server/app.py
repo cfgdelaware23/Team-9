@@ -45,7 +45,7 @@ def get_user(id):
 
 
 @app.route('/add_user', methods=['POST'])
-@cross_origin
+@cross_origin(origins="*")
 def add_user():
     data = request.json
     required_fields = ['firstName', 'lastName', 'address']
