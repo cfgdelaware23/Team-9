@@ -9,7 +9,6 @@ import {
 } from "@mui/material";
 import { Formik, Form } from "formik";
 import React from 'react';
-import '../css/FeedbackForm.css'
 
 const FeedbackForm = () => {
   const initialValue = {
