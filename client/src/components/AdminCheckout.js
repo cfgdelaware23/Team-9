@@ -24,7 +24,6 @@ const AdminCheckout = ({memberID}) => {
     } 
     fetchItems()
   }, [])
-
   return (
     <div className='admin-checkout'>
         Placeholder
