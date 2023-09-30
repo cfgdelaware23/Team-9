@@ -5,9 +5,14 @@ Paper,
 TextField,
 Typography,
 } from "@mui/material";
+
+
+
 import { Formik, Form } from "formik";
-import React from 'react';
+import React, { useState } from 'react';
 const Application = () => {
+    const [applicationState, setApplicationState] = useState({})
+
     const initialValue = {
         first: "",
         firstName: "",
@@ -20,7 +25,8 @@ const Application = () => {
         familySize: 1,
     };
     const handleSubmit = (values, props) => {
-        console.log(values);
+        setApplicationState(values)
+        console.log(applicationState)
         // TO-DO: add backend call
         props.resetForm();
     };
