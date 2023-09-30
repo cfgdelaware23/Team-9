@@ -6,9 +6,8 @@ import datetime
 
 app = Flask(__name__)
 
-
 # MongoDB configuration
-app.config["MONGO_URI"] = "mongodb+srv://nikhailmann:fc5xWebywMrOQ6ly@cluster0.54cmzes.mongodb.net/People"
+app.config["MONGO_URI"] = "mongodb+srv://USER:PW@cluster0.54cmzes.mongodb.net/People"
 mongo = PyMongo(app)
 
 @app.route('/users', methods=['GET'])
@@ -45,18 +44,6 @@ def add_purchase(id):
         {"$push": {"purchase_history": purchase.__dict__}}
     )
     return jsonify({"message": "Purchase added successfully"}), 201
-
-@app.route('/add_user_test', methods=['GET', 'POST'])
-def add_user_test():
-
-    user = User("first", "last", "address", "ebt", "email", "age", "hhsizeee")
-    print(mongo)
-    db = mongo.db
-    print(db)
-    collection = db["User"]
-    collection.insert_one(user.__dict__)
-
-    return jsonify({"message": "User added successfully", "membership_id": user.membership_id}), 201
 
 @app.route('/add_user', methods=['POST'])
 def add_user():
