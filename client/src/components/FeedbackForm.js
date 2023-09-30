@@ -36,7 +36,7 @@ const FeedbackForm = ({ setOpenToast }) => {
   };
 
   return (
-    <a id="feedbackForm" href="/#">
+    <a id="feedbackForm">
       <Grid container>
         <Grid item sm={3} xs={false}></Grid>
         <Grid item sm={6} xs={12}>
