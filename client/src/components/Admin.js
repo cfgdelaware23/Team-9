@@ -1,14 +1,26 @@
 import { TextField, Button } from "@mui/material"
-import { React, useState } from 'react'
+import { React, useState, useEffect } from 'react'
 import AdminCheckout from './AdminCheckout'
-import Validate from './Validate'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 
 const Admin = () => {
   const navigate = useNavigate()
-  const [memberID, setMemberID] = useState()
+  const [ memberID, setMemberID ] = useState()
+  const [ fetchError, setFetchError ] = useState()
+  const API_URL = `http://127.0.0.1:5000/user/${memberID}`
   const handleSubmitID = async(e) => {
-    // Put API Call here
+    e.preventDefault();
+    if (!memberID) return;
+    try {
+      const response = await fetch(API_URL)
+      if (!response.ok) throw Error ('Did not receve expected data')
+      const newID = await response.json().membership_id
+      setMemberID(newID)
+      setFetchError(null)
+    } catch (err) {
+      setFetchError(err.message)
+    }
+    setMemberID('');
   }
   return (
     <Routes>
@@ -56,7 +68,6 @@ const Admin = () => {
                         </Button>
                     </form>
                 }/>
-            <Route path = 'validate' element = {<Validate />}/>
             <Route path = 'checkout' element = {<AdminCheckout memberID = {memberID} />}/>
     </Routes>
     
