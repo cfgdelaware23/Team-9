@@ -21,7 +21,7 @@ const Landing = () => {
             vertical: "bottom",
             horizontal: "center"
           }}
-        key="bottomcenter"
+        key="bottomcenter1"
       >
         <Alert
           severity="success"
@@ -40,7 +40,7 @@ const Landing = () => {
             vertical: "bottom",
             horizontal: "center"
           }}
-        key="bottomcenter"
+        key="bottomcenter2"
       >
         <Alert
           severity="error"
