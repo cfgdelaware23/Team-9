@@ -3,7 +3,7 @@ import Landing from './Landing'
 import Application from './Application'
 import UserType from './UserType'
 import Admin from './Admin'
-import { Route, Routes} from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 
 const Content = () => {
   return (

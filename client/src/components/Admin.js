@@ -1,8 +1,8 @@
 import { TextField, Button } from "@mui/material"
-import { React, useState, useEffect } from 'react'
+import { React, useState } from 'react'
 import AdminCheckout from './AdminCheckout'
 import CreateNewUser from "./CreateNewUser"
-import { Routes, Route, useNavigate, NavLink } from 'react-router-dom'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 
 const Admin = () => {
   const navigate = useNavigate()
@@ -23,6 +23,7 @@ const Admin = () => {
       navigate('checkout')
     } catch (err) {
       setFetchError(err.message)
+      console.err(fetchError)
     }
   }
   return (
