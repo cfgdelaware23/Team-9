@@ -1,4 +1,5 @@
 import React from 'react'
+import DonationHeader from './DonationHeader'
 import '../css/HeaderButtons.css'
 
 const RightHeader = () => {
@@ -18,6 +19,7 @@ const RightHeader = () => {
           window.location.replace("/#feedbackForm")}}>
             Feedback!
         </button>
+        <DonationHeader/>
     </div>
   )
 }

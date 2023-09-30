@@ -1,6 +1,6 @@
 import React from 'react'
 import LineItem from './LineItem'
-const ListItems = ({items}) => {
+const ListItem = ({items}) => {
   return (
     <ul>
       {items.map((item) => (
@@ -10,4 +10,4 @@ const ListItems = ({items}) => {
   )
 }
 
-export default ListItems
+export default ListItem
