@@ -2,6 +2,8 @@ import React from 'react'
 import Landing from './Landing'
 import Application from './Application'
 import UserType from './UserType'
+import Checkout from './AdminCheckout'
+import Admin from './Admin'
 import { Route, Routes} from 'react-router-dom'
 
 const Content = () => {
@@ -12,6 +14,7 @@ const Content = () => {
           <Route index element = {<Landing />}/>
           <Route path = '/signup' element = {<Application />} />
           <Route path = '/usertype' element = {<UserType />} />
+          <Route path = '/admin/*' element = {<Admin/>} />
         </Route>
       </Routes>
     </div>

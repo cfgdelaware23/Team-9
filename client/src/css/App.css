@@ -15,6 +15,14 @@
     transform: translateX(0);
   }
 }
+@keyframes fadeIn {
+  0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
 .App {
   margin: 0px;
   padding: 0px;
@@ -65,15 +73,18 @@
 }
 
 .content {
-  display: flex;
+  display: grid;
   flex-direction: column;
   min-height: 800px;
   max-width: 100%;
   justify-content: center;
   align-items: center;
   padding: 50px;
+  animation-name: fadeIn;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 1s;
 }
-
 .footer {
   display: flex;
   min-height: 10%;

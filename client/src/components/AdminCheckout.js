@@ -2,7 +2,7 @@ import React from 'react'
 import '../css/AdminCheckout.css'
 
 
-const AdminCheckout = () => {
+const AdminCheckout = ({discount}) => {
     return (
         <div className='admin-checkout'>
             AdminCheckout
