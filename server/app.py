@@ -137,7 +137,6 @@ def add_purchase(id):
         "savings": savings
     }), 201
 
-
 @app.route('/delete_last_purchase/<membership_id>', methods=['DELETE'])
 @cross_origin(origins="*")
 def delete_last_purchase(membership_id):
@@ -167,7 +166,6 @@ def delete_last_purchase(membership_id):
         "status_code": 200
     }
     return jsonify(response), 200
-
 
 @app.route('/submit_feedback', methods=['POST'])
 @cross_origin(origins="*")
