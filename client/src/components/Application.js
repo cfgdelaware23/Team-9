@@ -6,6 +6,10 @@ TextField,
 Typography,
 Button
 } from "@mui/material";
+import Alert from '@mui/material/Alert';
+import { spacing } from '@mui/system';
+
+
 
 
 
@@ -13,9 +17,10 @@ import { Formik, Form } from "formik";
 import React, { useState } from 'react';
 const Application = () => {
     const [applicationState, setApplicationState] = useState({})
+    const [statusCode, setStatusCode] = useState(0)
+    const [memberId, setMemberId] = useState(-1)
 
     const initialValue = {
-        first: "",
         firstName: "",
         lastName: "",
         address: "",
@@ -25,8 +30,17 @@ const Application = () => {
         age: "",
         familySize: "",
     };
-    const handleSubmit = (values, props) => {
+    const handleSubmit = async (values, props) => {
         setApplicationState(values)
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(applicationState)
+        };
+        // const response = await fetch('https://api.github.com/users/eunit99/repos', requestOptions);
+        // const data = await response.json();
+        setStatusCode(201)
+        setMemberId(1000)
         console.log(applicationState)
         // TO-DO: add backend call
         props.resetForm();
@@ -139,6 +153,8 @@ const Application = () => {
                         }}
                         </Formik>
                     </Box>
+                    {statusCode === 401 && <Alert severity="error">Error: User already exists!</Alert>}
+                    {statusCode === 201 && <Alert severity="success">You have been signed up, your id is {memberId}!</Alert>}
                 </Paper>
             </Grid>
         <Grid item sm={3} xs={false}></Grid>
