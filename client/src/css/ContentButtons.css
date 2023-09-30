@@ -1,0 +1,14 @@
+.contentButton {
+    background-color: #d73c23;
+    font-size: 60px;
+    color: white;
+    padding: 10px 20px;
+    margin: 40px;
+    border: none;
+    border-radius: 10px;
+  }
+  
+  .contentButton:hover {
+    background-color: #c82a11;
+    cursor: pointer;
+  }
