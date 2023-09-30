@@ -67,6 +67,7 @@ def add_user():
 
 
 @app.route('/delete_user/<membership_id>', methods=['DELETE'])
+@cross_origin(origins="*")
 def delete_user(membership_id):
     user = mongo.db.users.find_one({"membership_id": membership_id})
     if not user:
@@ -137,6 +138,7 @@ def add_purchase(id):
     }), 201
 
 @app.route('/delete_last_purchase/<membership_id>', methods=['DELETE'])
+@cross_origin(origins="*")
 def delete_last_purchase(membership_id):
     user = mongo.db.users.find_one({"membership_id": membership_id})
     if not user:
