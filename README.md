@@ -54,7 +54,12 @@ unhealthy, popular brands
 Biggest Obstacles:
 Developing something that doesn't require a smartphone, because everything becomes a little simpler
 
+
+
+
+
 More Wellfare Q/A Notes:
+
 
 -using a membership card
 
