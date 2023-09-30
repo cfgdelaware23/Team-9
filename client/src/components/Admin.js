@@ -1,7 +1,8 @@
 import { TextField, Button } from "@mui/material"
 import { React, useState, useEffect } from 'react'
 import AdminCheckout from './AdminCheckout'
-import { Routes, Route, useNavigate } from 'react-router-dom'
+import CreateNewUser from "./CreateNewUser"
+import { Routes, Route, useNavigate, NavLink } from 'react-router-dom'
 
 const Admin = () => {
   const navigate = useNavigate()
@@ -26,50 +27,65 @@ const Admin = () => {
   }
   return (
     <Routes>
-            <Route 
-                index
-                element = {
-                    <div className='content'>
-                    <button
-                        className='contentButton'
-                        onClick={(e) => {
-                        e.preventDefault()
-                        navigate('checkout')
-                        }}
-                    >
-                    Guest Checkout
-                    </button>
-                    <button
-                        className='contentButton'
-                        onClick={(e) => {
-                        e.preventDefault()
-                        navigate('/admin/validate')
-                        }}
-                    >
-                    Member Checkout
-                    </button>
-                    </div>
-                } 
-            />
-            <Route 
-                path='validate' 
-                element={
-                    <form>
-                        <TextField 
-                            autoFocus
-                            className='auth-form'
-                            id='addText'
-                            type='text'
-                            placeholder='Membership ID here...'
-                            required
-                            onChange={(e) => { setMemberID(e.target.value)}}
-                        />
-                        <Button class='submitButton' type='submit' onClick={(e) =>{ e.preventDefault(); handleSubmitID()}}>
-                            Submit!
-                        </Button>
-                    </form>
-                }/>
-            <Route path = 'checkout' element = {<AdminCheckout memberID = {memberID} items = {items} setItems={setItems} />}/>
+      <Route 
+        index
+        element = {
+            <div className='content'>
+            <button
+                className='contentButton'
+                onClick={(e) => {
+                e.preventDefault()
+                navigate('checkout')
+                }}
+            >
+            Guest Checkout
+            </button>
+            <button
+                className='contentButton'
+                onClick={(e) => {
+                e.preventDefault()
+                navigate('/admin/validate')
+                }}
+            >
+            Member Checkout
+            </button>
+            </div>
+        } 
+    />
+    <Route 
+      path='validate' 
+      element={
+        <div>
+          <form>
+              <TextField 
+                  autoFocus
+                  className='auth-form'
+                  id='addText'
+                  type='text'
+                  placeholder='Membership ID here...'
+                  required
+                  onChange={(e) => { setMemberID(e.target.value)}}
+              />
+              <Button class='submitButton' type='submit' onClick={(e) =>{ e.preventDefault(); handleSubmitID()}}>
+                  Submit!
+              </Button>
+                </form>
+                <Button
+                    class='submitButton'
+                    type = 'submit'
+                    onClick={(e) => {
+                      e.preventDefault()
+                      setMemberID('')
+                      navigate('/admin/createnewuser')
+                    }}
+                  >
+                    No Account? Click Here
+                  </Button>
+              </div>
+            }/>
+          <Route path = 'createnewuser' element ={<CreateNewUser/>}/>
+          <Route path = 'checkout' element = {<AdminCheckout memberID = {memberID} items = {items} setItems={setItems} />}/>
+  
     </Routes>
     
   )

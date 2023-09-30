@@ -6,11 +6,13 @@ import '../css/AdminCheckout.css'
 const AdminCheckout = ({memberID, items, setItems}) => {
   const {format} = require('date-fns')
   const [currItem, setCurrItem] = useState('')
+  const [currSession, setCurrSession] = useState([])
   const dateTime = `${format(new Date(), 'MM/dd/yyyy\tHH:mm:ss')}`
 
   const handleSubmitCurrItem = async(e) => {
     const newItem = {item: currItem, total: 100}
     setItems([...items, newItem])
+    setCurrSession([...currSession, newItem])
     const API_URL = `http://127.0.0.1:5000/add_purchase/${memberID}`
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -69,6 +71,14 @@ const AdminCheckout = ({memberID, items, setItems}) => {
         <div> 
           {dateTime} 
         </div>
+        <div>
+          {items.length ? (
+              <ListItem items = {currSession}/>
+          ) : (
+              <p style = {{marginTop: '2rem'}}> </p>
+          )}
+        </div>
+
       
       </div>
     </div>
