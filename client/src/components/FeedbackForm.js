@@ -7,10 +7,11 @@ import {
   Typography,
   Rating
 } from "@mui/material";
-import { Formik, Form } from "formik";
+import { Formik, Form, ErrorMessage } from "formik";
 import React from 'react';
+import * as Yup from 'yup';
 
-const FeedbackForm = () => {
+const FeedbackForm = ({ setOpenToast }) => {
   const initialValue = {
     rating: 0,
     like: "",
@@ -21,6 +22,16 @@ const FeedbackForm = () => {
   const handleSubmit = (values, props) => {
     console.log(values);
     // TO-DO: add backend call
+    // fetch(`https://api.github.com/users/eunit99/repos`)
+    //   .then(res => res.json())
+    //   .then(
+    //     (_) => {
+    //       setOpenToast([true, false])
+    //     },
+    //     (error) => {
+    //       setOpenToast([false, true])
+    //     }
+    //   )
     props.resetForm();
   };
 
@@ -88,6 +99,7 @@ const FeedbackForm = () => {
                         type="submit"
                         color="primary"
                         fullWidth
+                        disabled={!props.dirty}
                       >
                         Submit
                       </Button>
