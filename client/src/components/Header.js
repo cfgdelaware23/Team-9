@@ -8,7 +8,6 @@ const Header = () => {
         <div className='header'>
             <LeftHeader />
             <RightHeader />
-            <DonationHeader />
         </div>
   )
 }

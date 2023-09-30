@@ -62,7 +62,7 @@ import {
                           multiline
                           fullWidth
                           label="Enter Donation Amount"
-                          name="notLike"
+                          name="amount"
                           variant="outlined"
                           margin="dense"
                           value={amount}
@@ -73,7 +73,7 @@ import {
                           multiline
                           fullWidth
                           label="Enter Credit Card Number"
-                          name="suggestions"
+                          name="creditCardNumber"
                           variant="outlined"
                           margin="dense"
                           value={creditCardNumber}
