@@ -1,5 +1,7 @@
 from flask import Flask, jsonify, request
 from flask_pymongo import PyMongo
+import pymongo
+
 from models.user import User
 from models.purchase import Purchase
 import hashlib
@@ -8,7 +10,7 @@ import datetime
 app = Flask(__name__)
 
 # MongoDB configuration
-app.config["MONGO_URI"] = "mongodb://localhost:27017/mydatabase"
+app.config["MONGO_URI"] = "mongodb+srv://nikhailmann:fc5xWebywMrOQ6ly@cluster0.54cmzes.mongodb.net/People"
 mongo = PyMongo(app)
 
 @app.route('/users', methods=['GET'])
@@ -32,6 +34,18 @@ def get_user_purchases(id):
         return jsonify(user.get('purchase_history', []))
     else:
         return jsonify({"error": "User not found"}), 404
+
+@app.route('/add_user_test', methods=['GET', 'POST'])
+def add_user_test():
+
+    user = User("first", "last", "address", "ebt", "email", "age", "hhsizeee")
+    print(mongo)
+    db = mongo.db
+    print(db)
+    collection = db["User"]
+    collection.insert_one(user.__dict__)
+
+    return jsonify({"message": "User added successfully", "membership_id": user.membership_id}), 201
 
 @app.route('/add_user', methods=['POST'])
 def add_user():
