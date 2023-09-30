@@ -33,6 +33,22 @@ def get_user_purchases(id):
     else:
         return jsonify({"error": "User not found"}), 404
 
+@app.route('/add_purchase/<id>', methods=['POST'])
+def add_purchase(id):
+    user = mongo.db.users.find_one({"membership_id": id})
+    if not user:
+        return jsonify({"error": "User not found"}), 404
+
+    data = request.json
+    purchase_date = datetime.datetime.now()
+    purchase = Purchase(id, purchase_date, data['total'], data['item'])
+
+    # Add new purchase to a user's purchase history
+    mongo.db.users.update_one(
+        {"membership_id": id},
+        {"$push": {"purchase_history": purchase.__dict__}}
+    )
+
 @app.route('/add_user', methods=['POST'])
 def add_user():
     data = request.json

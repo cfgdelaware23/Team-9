@@ -16,6 +16,8 @@ class User:
 
     def add_purchase(self, purchase):
         self.purchase_history.append(purchase)
+    
+    
 
     def set_user_hash(self, user_hash):
         self.user_hash = user_hash
