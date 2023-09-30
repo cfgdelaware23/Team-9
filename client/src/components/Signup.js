@@ -46,7 +46,7 @@ function Signup() {
           </div>
           <div className="rightText">
             <h3>
-              Wellfare Groceries
+              Better Grocery
             </h3>
           </div>
         </div>
