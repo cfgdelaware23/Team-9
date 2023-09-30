@@ -1,56 +1,26 @@
-# Team-9
+# Insert Team name - Wellfare Project Team 9
 
-WellFair:
-Q: Do we have to come up with the personalized pricing model?
-A: No, we create the infrastructure of the membership system (signing up households, client-side, cashier-side, admin-side)
-Q: Is the membership model similar to whole foods? (do they need email, other creds)
-A: The idea is to create a solution that DOES NOT REQUIRE a smartphone (in-person registration?) no sign-in,
-that's gonna make some blockers for families. NEeds: Does work w smartphone/web, No interaction in the store
+## Challenge Statement
 
-We want to create infrastructure (database management, client-side/cashier/admin-side profiles, database storing 
-customer info, point of sale information (ask customers questions ON SALE), )
+How can technology help to create a seamless in-person customer experience, enabling shoppers to view and interact with their personalized pricing at the shelf and at point of sale, enroll in a membership program and share feedback data with Wellfare? Consider ways technology can increase discovery and sales, create a feedback dialouge between customers and staff, and encourage and incentive healthy choices.
 
-We want to develop an idea that does not require a smartphone. It's up to our discretion how much we want to focus on
-smartphone/non-smartphone companies
-Still can have a qualification process (on SNAP, welfare, etc.)
+### Minimum Viable Product Solution
 
-Element of trust between customer and store (need to ensure that the customer is eligible for membership)
-at some point, do products become free?
-No drivers lisence, or IDs, but trust system. 
-Qualifiers:
-Do you have an EBT card?
-Address
-airtable
-two sig airtable app (datagather)
+The current working implementation is to create both a customer and cashier facing interface. The application for a customer will be directed towards a landing page that greets the customer with Wellfare's ideology and goals. The customer also has the option to sign up for the membership program. Which will use SNAP, EBT or public housing validation to ensure that the customer abides by Wellfare's guidlines. This will add the customer to Wellfare's system and allow the user to get discounted prices if eligible. For the cashier portal, they will have the ability to process the customer as a guest or member which will automatically calculate the discounted price.
 
-Government collaboration
-spread by word of mouth
-(hellofresh)
+The application allows and end-to-end cycle of customer to cashier friendly user experience that ensures safety, security and accesibility.
 
-Integration of other companies:
-Doordash/instacart
+### Technologies Used
 
-Customer feedback:
-At checkout
-Practical HCI 
+- React
+- Python
+- Flask
+- MongoDB
 
-shareholders:
-customers with a smartphone
-customers without a smartphone
-produce providers (provide products with 2-3 months of shelf life)
+### How to Run
 
-Ideas:
-verified buyer tier? vs non-verified buyer;
-EBT Card, 
-streamline qualification system
-speak to what is popular in the neighborhood
-offer betterbox subscription in store (popups will stop operating, physical store will act as a popup)
-
-To avoid:
-no shelf interaction
-anything with a card
-unhealthy, popular brands
-
-Biggest Obstacles:
-Developing something that doesn't require a smartphone, because everything becomes a little simpler
-
+1. `git clone https://github.com/cfgdelaware23/Team-9.git`
+2. `cd Team-9` in Terminal
+3. navigate to client folder and run `npm install`
+4. Once packages have been installed run `npm start` to run front-end
+5. Navigate back to server and run `flask run`
