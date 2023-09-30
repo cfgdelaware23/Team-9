@@ -38,6 +38,7 @@
 .leftHeader {
   display: flex;
   width: 50%;
+  margin-left: 10px;
   align-items: start;
   animation-name: slideInLeft;
   animation-duration: 1s;
