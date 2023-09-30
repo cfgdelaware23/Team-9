@@ -1,4 +1,4 @@
-# Merge Conflict Marauders - Wellfare Project Team 9
+# The Wilmington Project - Wellfare Project Team 9
 
 ## Challenge Statement
 
