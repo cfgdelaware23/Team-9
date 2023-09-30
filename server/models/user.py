@@ -1,23 +1,29 @@
 import uuid
+import random
+import requests
+import hashlib
 
 class User:
-    def __init__(self, first_name, last_name, address, snap_ebt_number=None, email=None, age=None, household_size=None):
-        self.membership_id = str(uuid.uuid4())  # Generate unique membership ID
-        self.first_name = first_name
-        self.last_name = last_name
+    def __init__(self, firstName, lastName, address, snap=None, phoneNumber=None, email=None, age=None, familySize=None):
+        self.userID = str(uuid.uuid4())  # Primary Key
+        self.membership_id = self.generate_membership_id()  # 6-digit unique ID
+        self.firstName = firstName
+        self.lastName = lastName
         self.address = address
-        self.snap_ebt_number = snap_ebt_number  
-        self.email = email  
-        self.age = age  
-        self.household_size = household_size  
-        self.qualify_discount = False  
-        self.purchase_history = []
-        self.user_hash = ""  
+        self.snap = snap
+        self.phoneNumber = phoneNumber
+        self.email = email
+        self.age = age
+        self.familySize = familySize
+        self.qualify_discount = self.check_qualify_discount()
+        self.user_hash = hashlib.sha256((firstName + lastName + address).encode()).hexdigest()
 
-    def add_purchase(self, purchase):
-        self.purchase_history.append(purchase)
-    
-    
+    def generate_membership_id(self):
+        # Generates a random 6-digit ID. Later I will ensure it is unique in our database
+        return str(random.randint(100000, 999999))
 
-    def set_user_hash(self, user_hash):
-        self.user_hash = user_hash
+    def check_qualify_discount(self):
+        if self.snap or (self.familySize and int(self.familySize) > 4):
+            return True
+        
+        return False
