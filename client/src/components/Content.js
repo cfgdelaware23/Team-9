@@ -5,11 +5,11 @@ import FeedbackForm from './FeedbackForm'
 
 const Content = () => {
   return (
-    <content>
+    <div className='content'>
       <Signup />
       <Aboutus />
       <FeedbackForm />
-    </content>
+    </div>
   )
 }
 export default Content
