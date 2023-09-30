@@ -78,5 +78,42 @@ def check_qualify(membership_id):
     qualifies = user.get('qualify_discount', False)
     return jsonify({"qualifies": qualifies, "membership_id": membership_id})
 
+def get_discounted_price_and_savings(original_price, qualifies_for_discount):
+    discount_rate = 0.6  # __% discount
+    if qualifies_for_discount:
+        discounted_price = original_price * (1 - discount_rate)
+        savings = original_price - discounted_price
+        return round(discounted_price, 2), round(savings, 2)  
+    else:
+        return original_price, 0.0
+
+@app.route('/add_purchase/<id>', methods=['POST'])
+def add_purchase(id):
+    user = mongo.db.users.find_one({"membership_id": id})
+    if not user:
+        return jsonify({"error": "User not found"}), 404
+
+    data = request.json
+    if 'total' not in data or 'item' not in data:
+        return jsonify({"error": "Missing total or item in the request"}), 400
+
+    qualifies_for_discount = user.get('qualify_discount', False)
+    original_price = data['total']
+    discounted_price, savings = get_discounted_price_and_savings(original_price, qualifies_for_discount)
+
+    purchase_date = datetime.datetime.now()
+    purchase = Purchase(id, purchase_date, discounted_price, data['item']) 
+
+    mongo.db.users.update_one(
+        {"membership_id": id},
+        {"$push": {"purchase_history": purchase.__dict__}}
+    )
+    return jsonify({
+        "message": "Purchase added successfully", 
+        "original_price": original_price,
+        "discounted_price": discounted_price,
+        "savings": savings
+    }), 201
+
 if __name__ == '__main__':
     app.run(debug=True)
