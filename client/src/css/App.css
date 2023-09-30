@@ -25,7 +25,7 @@
   background-color: white;
 }
 
-header {
+.header {
   display: flex;
   min-height: 10%;
   width: 100%;
@@ -73,7 +73,7 @@ header {
   padding: 50px;
 }
 
-footer {
+.footer {
   display: flex;
   min-height: 10%;
   width: 100%;
