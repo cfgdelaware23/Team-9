@@ -117,6 +117,35 @@ def add_purchase(id):
         "savings": savings
     }), 201
 
+@app.route('/delete_last_purchase/<membership_id>', methods=['DELETE'])
+def delete_last_purchase(membership_id):
+    user = mongo.db.users.find_one({"membership_id": membership_id})
+    if not user:
+        response = {
+            "error": "User not found",
+            "status_code": 404
+        }
+        return jsonify(response), 404
+
+    if not user.get('purchase_history'):
+        response = {
+            "error": "No purchases found for this user",
+            "status_code": 404
+        }
+        return jsonify(response), 404
+
+    # Removes last purchase from the user's purchase history
+    mongo.db.users.update_one(
+        {"membership_id": membership_id},
+        {"$pop": {"purchase_history": 1}}
+    )
+
+    response = {
+        "message": "Last purchase deleted successfully",
+        "status_code": 200
+    }
+    return jsonify(response), 200
+
 @app.route('/submit_feedback', methods=['POST'])
 @cross_origin(origins="*")
 def submit_feedback():
