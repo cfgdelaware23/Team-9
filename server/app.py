@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request
 from flask_pymongo import PyMongo
 from models.user import User
 from models.purchase import Purchase
+import hashlib
 import datetime
 
 app = Flask(__name__)
@@ -35,8 +36,20 @@ def get_user_purchases(id):
 @app.route('/add_user', methods=['POST'])
 def add_user():
     data = request.json
-    user = User(data['first_name'], data['last_name'], data['snap_ebt_number'], 
-                data.get('email'), data.get('age'), data.get('household_size'))
+    
+    # creates the hash from a user's first and last name, and address
+    unique_info = data['first_name'] + data['last_name'] + data['address']
+    user_hash = hashlib.sha256(unique_info.encode()).hexdigest()
+
+    # Check if user with the same hash already exists
+    existing_user = mongo.db.users.find_one({"user_hash": user_hash})
+    if existing_user:
+        return jsonify({"error": "User already exists"}), 400
+
+    user = User(data['first_name'], data['last_name'], data['address'], 
+                data.get('snap_ebt_number'), data.get('email'), data.get('age'), data.get('household_size'))
+    
+    user.set_user_hash(user_hash)
     
     purchase_date = datetime.datetime.now()
     purchase = Purchase(user.membership_id, purchase_date, 20.5, "Item Name")
