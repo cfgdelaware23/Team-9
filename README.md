@@ -1,4 +1,4 @@
-# Insert Team name - Wellfare Project Team 9
+# Merge Conflict Marauders - Wellfare Project Team 9
 
 ## Challenge Statement
 
