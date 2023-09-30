@@ -22,3 +22,11 @@
     align-items: center;
     min-height:200px;
 }
+
+span {
+    transition-duration: 1s;
+}
+
+span:hover {
+    transform:scale(1.2);
+}
