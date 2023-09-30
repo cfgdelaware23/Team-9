@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700);
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 @keyframes fadeIn {
   0% {
 		opacity: 0;
@@ -7,16 +8,123 @@
 		opacity: 1;
 	}
 }
+@keyframes drop {
+  0% {
+      transform: translateY(-200px);
+      opacity: 0;
+  }
+  50% {
+      transform: translateY(0px);
+      opacity: 1;
+  }
+  65% {
+      transform: translateY(-17px);
+      opacity: 1;
+  }
+  75% {
+      transform: translateY(-22px);
+      opacity: 1;
+  }
+  100% {
+      transform: translateY(0px);
+      opacity: 1;
+  }
+}
+@keyframes slideInLeft {
+    from {
+      transform: translateX(-1200px);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+@keyframes slideInRight {
+  from {
+    transform: translateX(1200px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+  
 .signup-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   animation-name: fadeIn;
 	animation-iteration-count: 1;
 	animation-timing-function: ease-in;
 	animation-duration: 1s;
-}
+  
 
+}
+.affordable-text {
+  display: flex;
+  font-size: 7rem;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin: 1.5rem;
+  justify-content: center;
+  text-transform: none;
+  color: white;
+}
+.s {
+  opacity: 0;
+  animation: drop 0.4s linear forwards;
+
+}
+.i {
+  opacity: 0;
+  animation: drop 0.4s linear forwards 0.2s;
+
+}
+.g {
+  opacity: 0;
+  animation: drop 0.4s linear forwards 0.4s;
+
+}
+.n {
+  opacity: 0;
+  animation: drop 0.4s linear forwards 0.6s;
+  margin-right: 2rem;
+}
+.u {
+  opacity: 0;
+  animation: drop 0.4s linear forwards 0.8s;
+}
+.p {
+  opacity: 0;
+  animation: drop 0.4s linear forwards 1s;
+  margin-right: 2rem;
+}
+.h {
+  opacity: 0;
+  animation: drop 0.4s linear forwards 1.2s;
+}
+.e1 {
+  opacity: 0;
+  animation: drop 0.4s linear forwards 1.4s;
+}
+.r {
+  opacity: 0;
+  animation: drop 0.4s linear forwards 1.6s;
+}
+.e2 {
+  opacity: 0;
+  animation: drop 0.4s linear forwards 1.8s;
+}
+.exclamation {
+  opacity: 0;
+  animation: drop 0.4s linear forwards 2s;
+}
+@keyframes animatedOne {
+  from {
+      background-position: 0 0;
+  }
+  to {
+      background-position: 100% 0;
+  }
+}
 .signup-button {
   background-color: green; 
   color: white; 
@@ -30,4 +138,56 @@
 
 .signup-button:hover {
     background-color: rgb(11, 91, 11);
+}
+.moving-text-container {
+  margin:0px;
+}
+.leftText {
+  display: flex;
+  align-items: start;
+  animation-name: slideInLeft;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0.5s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  font-size:50px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  max-height:20px;
+  color: #fff;
+  text-shadow:
+      0 0 7px #2b8852,
+      0 0 10px #279b37,
+      0 0 21px #39a851,
+      0 0 42px #0fa,
+      0 0 82px #0fa,
+      0 0 92px #0fa,
+      0 0 102px #0fa,
+      0 0 151px #0fa;
+}
+.rightText{
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: end;
+  animation-name: slideInRight;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0.5s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  font-size:100px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: #fff;
+  text-shadow:
+    0 0 7px #2b8852,
+    0 0 10px #279b37,
+    0 0 21px #39a851,
+    0 0 42px #0fa,
+    0 0 82px #0fa,
+    0 0 92px #0fa,
+    0 0 102px #0fa,
+    0 0 151px #0fa;
 }

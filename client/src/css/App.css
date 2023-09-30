@@ -23,6 +23,7 @@
     opacity: 1;
   }
 }
+
 .App {
   margin: 0px;
   padding: 0px;
@@ -30,7 +31,7 @@
   font-family: "Open Sans", sans-serif;
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: rgb(247, 255, 250);
 }
 
 .header {

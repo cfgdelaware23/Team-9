@@ -1,0 +1,6 @@
+.intro-image {
+    transition-duration:1s;
+}
+.intro-image:hover {
+    transform: scale(1.2);
+}

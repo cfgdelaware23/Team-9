@@ -9,8 +9,13 @@ const Landing = () => {
 
   return (
     <div>
-      <Signup />
-      <Aboutus />
+      <section className = "section-background parallax">
+        <Signup />
+      </section>
+      <section className = "section-background parallax-about">
+        <Aboutus />
+      </section>
+      
       <FeedbackForm setOpenToast={setOpenToast}/>
 
       <Snackbar
