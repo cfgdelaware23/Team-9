@@ -5,7 +5,7 @@ import '../css/AdminCheckout.css'
 const AdminCheckout = ({discount}) => {
     return (
         <div className='admin-checkout'>
-            AdminCheckout
+            
         </div>
     )
 }
