@@ -75,7 +75,7 @@ def check_qualify(membership_id):
 
 
 def get_discounted_price_and_savings(original_price, qualifies_for_discount):
-    discount_rate = 0.6  # __% discount
+    discount_rate = 0.65  # __% discount
     if qualifies_for_discount:
         discounted_price = original_price * (1 - discount_rate)
         savings = original_price - discounted_price
