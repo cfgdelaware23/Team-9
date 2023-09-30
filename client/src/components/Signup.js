@@ -23,7 +23,7 @@ function Signup() {
             backgroundColor: "#21b6ae",
         }}
         onClick={() => {handleSignUp()}}
-        >Sign Up</Button>
+        >Sign Up for Discounts</Button>
 
     </div>
   )
