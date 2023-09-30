@@ -1,12 +1,11 @@
 from flask import Flask, jsonify, request
 from flask_pymongo import PyMongo
-import pymongo
-
 from models.user import User
 from models.purchase import Purchase
 import datetime
 
 app = Flask(__name__)
+
 
 # MongoDB configuration
 app.config["MONGO_URI"] = "mongodb+srv://nikhailmann:fc5xWebywMrOQ6ly@cluster0.54cmzes.mongodb.net/People"
