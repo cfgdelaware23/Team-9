@@ -73,5 +73,15 @@ def check_qualify(membership_id):
     qualifies = user.get('qualify_discount', False)
     return jsonify({"qualifies": qualifies, "membership_id": membership_id})
 
+def get_discounted_price_and_savings(original_price, qualifies_for_discount):
+    discount_rate = 0.6  # __% discount
+    if qualifies_for_discount:
+        discounted_price = original_price * (1 - discount_rate)
+        savings = original_price - discounted_price
+        return round(discounted_price, 2), round(savings, 2)  
+    else:
+        return original_price, 0.0
+
+
 if __name__ == '__main__':
     app.run(debug=True)
