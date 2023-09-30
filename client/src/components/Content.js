@@ -2,7 +2,6 @@ import React from 'react'
 import Landing from './Landing'
 import Application from './Application'
 import UserType from './UserType'
-import Checkout from './AdminCheckout'
 import Admin from './Admin'
 import { Route, Routes} from 'react-router-dom'
 

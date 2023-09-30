@@ -1,8 +1,10 @@
 import React from 'react'
 import DonationHeader from './DonationHeader'
+import {useNavigate} from 'react-router-dom'
 import '../css/HeaderButtons.css'
 
 const RightHeader = () => {
+  const navigate = useNavigate()
   return (
     <div className="rightHeader">
         <button 
