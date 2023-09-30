@@ -2,11 +2,11 @@ import React from 'react'
 import LineItem from './LineItem'
 const ListItem = ({items}) => {
   return (
-    <ul>
-      {items.map((item) => (
-        <LineItem key = {item.id} item = {item}/>
+    <ul1>
+      {items.map((curr) => (
+        <LineItem key = {curr.id} item = {curr}/>
       ))}
-    </ul>
+    </ul1>
   )
 }
 

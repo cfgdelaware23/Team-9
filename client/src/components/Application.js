@@ -11,10 +11,9 @@ import Alert from '@mui/material/Alert';
 import { Formik, Form } from "formik";
 import React, { useState } from 'react';
 const Application = () => {
-    const [applicationState, setApplicationState] = useState({})
     const [statusCode, setStatusCode] = useState(0)
     const [memberId, setMemberId] = useState(-1)
-
+    
     const initialValue = {
         firstName: "",
         lastName: "",
@@ -26,18 +25,16 @@ const Application = () => {
         familySize: "",
     };
     const handleSubmit = async (values, props) => {
-        setApplicationState(values)
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(applicationState)
+            body: JSON.stringify(values)
         };
+        
         const response = await fetch('http://127.0.0.1:5000/add_user', requestOptions);
-        const data = await response.json();
         setStatusCode(response.status)
+        const data = await response.json();
         setMemberId(data.membership_id)
-        console.log(applicationState)
-        // TO-DO: add backend call
         props.resetForm();
     };
     return (

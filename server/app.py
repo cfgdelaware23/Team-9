@@ -2,7 +2,7 @@ from flask import Flask, jsonify, request
 from flask_pymongo import PyMongo
 from models.user import User
 from models.purchase import Purchase
-from models.feedback import Feedback  
+from models.feedback import Feedback
 import datetime
 import os
 from dotenv import load_dotenv
@@ -66,6 +66,26 @@ def add_user():
     return jsonify({"message": "User added successfully", "membership_id": user.membership_id}), 201
 
 
+@app.route('/delete_user/<membership_id>', methods=['DELETE'])
+@cross_origin(origins="*")
+def delete_user(membership_id):
+    user = mongo.db.users.find_one({"membership_id": membership_id})
+    if not user:
+        response = {
+            "error": "User not found",
+            "status_code": 404
+        }
+        return jsonify(response), 404
+
+    mongo.db.users.delete_one({"membership_id": membership_id})
+
+    response = {
+        "message": f"User with membership ID {membership_id} deleted successfully",
+        "status_code": 200
+    }
+    return jsonify(response), 200
+
+
 @app.route('/check_qualify/<membership_id>', methods=['GET'])
 @cross_origin(origins="*")
 def check_qualify(membership_id):
@@ -117,12 +137,44 @@ def add_purchase(id):
         "savings": savings
     }), 201
 
+
+@app.route('/delete_last_purchase/<membership_id>', methods=['DELETE'])
+@cross_origin(origins="*")
+def delete_last_purchase(membership_id):
+    user = mongo.db.users.find_one({"membership_id": membership_id})
+    if not user:
+        response = {
+            "error": "User not found",
+            "status_code": 404
+        }
+        return jsonify(response), 404
+
+    if not user.get('purchase_history'):
+        response = {
+            "error": "No purchases found for this user",
+            "status_code": 404
+        }
+        return jsonify(response), 404
+
+    # Removes last purchase from the user's purchase history
+    mongo.db.users.update_one(
+        {"membership_id": membership_id},
+        {"$pop": {"purchase_history": 1}}
+    )
+
+    response = {
+        "message": "Last purchase deleted successfully",
+        "status_code": 200
+    }
+    return jsonify(response), 200
+
+
 @app.route('/submit_feedback', methods=['POST'])
 @cross_origin(origins="*")
 def submit_feedback():
     data = request.json
     required_fields = ['like', 'notLike', 'rating', 'suggestions']
-    
+
     if not all(field in data for field in required_fields):
         response = {
             "error": "Missing required field(s)",
@@ -130,7 +182,8 @@ def submit_feedback():
         }
         return jsonify(response), 400
 
-    feedback = Feedback(data['like'], data['notLike'], data['rating'], data['suggestions'])
+    feedback = Feedback(data['like'], data['notLike'],
+                        data['rating'], data['suggestions'])
 
     mongo.db.feedback.insert_one(feedback.__dict__)
 
@@ -139,6 +192,7 @@ def submit_feedback():
         "status_code": 201
     }
     return jsonify(response), 201
+
 
 if __name__ == '__main__':
     app.run(debug=True)
