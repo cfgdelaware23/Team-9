@@ -1,3 +1,4 @@
+import { TextField, Button } from "@mui/material"
 import { React, useState } from 'react'
 import AdminCheckout from './AdminCheckout'
 import Validate from './Validate'
@@ -38,22 +39,22 @@ const Admin = ({discount}) => {
                 } 
             />
             <Route 
-                path = 'validate' 
-                element = {
+                path='validate' 
+                element={
                     <form>
-                        <input
+                        <TextField 
                             autoFocus
-                            className = 'auth-form'
-                            id = 'addText'
-                            type = 'text'
-                            placeholder = 'Membership ID here...'
+                            className='auth-form'
+                            id='addText'
+                            type='text'
+                            placeholder='Membership ID here...'
                             required
-                            value = {id}
-                            onChange = {(e) => setID(e.target.value)}
+                            value={id}
+                            onChange={(e) => setID(e.target.value)}
                         />
-                        <button class = 'submitButton' type = 'submit' onClick = {handleSubmitID}>
+                        <Button class='submitButton' type='submit' onClick={() => handleSubmitID()}>
                             Submit!
-                        </button>
+                        </Button>
                     </form>
                 }/>
             <Route path = 'validate' element = {<Validate />}/>

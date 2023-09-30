@@ -6,7 +6,7 @@ const AdminLanding = () => {
     const navigate = useNavigate()
     const [discount, setDiscount] = useState(1);
     return (
-        <div className='content'>
+        <div>
             <button
                 className='contentButton'
                 onClick={(e) => {
@@ -14,7 +14,7 @@ const AdminLanding = () => {
                 navigate('/checkout')
                 }}
             >
-            Guest Checkout
+                Guest Checkout
             </button>
             <button
                 className='contentButton'
