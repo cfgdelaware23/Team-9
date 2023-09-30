@@ -2,7 +2,6 @@ from flask import Flask, jsonify, request
 from flask_pymongo import PyMongo
 from models.user import User
 from models.purchase import Purchase
-import hashlib
 import datetime
 
 app = Flask(__name__)
