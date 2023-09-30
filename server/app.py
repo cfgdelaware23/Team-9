@@ -3,11 +3,16 @@ from flask_pymongo import PyMongo
 from models.user import User
 from models.purchase import Purchase
 import datetime
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 
 # MongoDB configuration
-app.config["MONGO_URI"] = "placeholder"
+api_key = os.getenv("API_KEY")
+app.config["MONGO_URI"] = api_key
 mongo = PyMongo(app)
 
 @app.route('/users', methods=['GET'])
