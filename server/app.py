@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request
 from flask_pymongo import PyMongo
 from models.user import User
 from models.purchase import Purchase
+from models.feedback import Feedback  
 import datetime
 import os
 from dotenv import load_dotenv
@@ -112,6 +113,27 @@ def add_purchase(id):
         "savings": savings
     }), 201
 
+@app.route('/submit_feedback', methods=['POST'])
+def submit_feedback():
+    data = request.json
+    required_fields = ['like', 'notLike', 'rating', 'suggestions']
+    
+    if not all(field in data for field in required_fields):
+        response = {
+            "error": "Missing required field(s)",
+            "status_code": 400
+        }
+        return jsonify(response), 400
+
+    feedback = Feedback(data['like'], data['notLike'], data['rating'], data['suggestions'])
+
+    mongo.db.feedback.insert_one(feedback.__dict__)
+
+    response = {
+        "message": "Feedback submitted successfully",
+        "status_code": 201
+    }
+    return jsonify(response), 201
 
 if __name__ == '__main__':
     app.run(debug=True)
