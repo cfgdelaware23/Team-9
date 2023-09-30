@@ -13,7 +13,7 @@ import React, { useState } from 'react';
 const Application = () => {
     const [statusCode, setStatusCode] = useState(0)
     const [memberId, setMemberId] = useState(-1)
-
+    
     const initialValue = {
         firstName: "",
         lastName: "",
