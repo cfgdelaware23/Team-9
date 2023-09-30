@@ -6,11 +6,13 @@ import '../css/AdminCheckout.css'
 const AdminCheckout = ({memberID, items, setItems}) => {
   const {format} = require('date-fns')
   const [currItem, setCurrItem] = useState('')
+  const [currSum, setCurrSum] = useState(0)
   const [currSession, setCurrSession] = useState([])
   const dateTime = `${format(new Date(), 'MM/dd/yyyy\tHH:mm:ss')}`
 
   const handleSubmitCurrItem = async(e) => {
     const newItem = {item: currItem, total: 100}
+    setCurrSum(currSum+newItem.total)
     setItems([...items, newItem])
     setCurrSession([...currSession, newItem])
     const API_URL = `http://127.0.0.1:5000/add_purchase/${memberID}`
@@ -103,6 +105,9 @@ const AdminCheckout = ({memberID, items, setItems}) => {
       <div class = "sidebar"> 
         <div> 
           {dateTime} 
+        </div>
+        <div>
+          Current Total: ${currSum}
         </div>
         <div>
           {items.length ? (
