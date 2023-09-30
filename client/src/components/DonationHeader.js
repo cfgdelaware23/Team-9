@@ -31,7 +31,7 @@ function DonationHeader() {
                 Donate!
             </button>
         </div>
-        <Modal
+      <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
