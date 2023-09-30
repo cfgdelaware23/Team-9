@@ -33,6 +33,7 @@
     grid-area:mn;
     display: flex;
     flex-direction:column;
+
     background-color: whitesmoke;
 }
 
@@ -67,7 +68,7 @@ ul li {
 .submitButton {
     margin-bottom:50px;
 }
-
 .checkout-headers {
     margin-bottom:20px;
 }
+

@@ -76,7 +76,6 @@ const AdminCheckout = ({memberID, items, setItems}) => {
 
     <div className='admin-checkout'>
       <div class = "scan">
-        <h1 className = 'checkout-headers'>Scan </h1>
         <form>
           <TextField 
             autoFocus
