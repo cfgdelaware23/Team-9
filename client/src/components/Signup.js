@@ -14,7 +14,7 @@ function Signup() {
     <div className='signup-container'>
         <Button variant="contained" size='large' color='primary'
         sx={{
-            width: 500,
+            width: 800,
             height: 150
         }}
         style={{
@@ -30,6 +30,11 @@ function Signup() {
             <div class = "n">n</div>
             <div class = "u">U</div>
             <div class = "p">p</div>
+            <div class = "h">H</div>
+            <div class = "e1">e</div>
+            <div class = "r">r</div>
+            <div class = "e2">e</div>
+            <div class = "exclamation">!</div>
           </div>
         </div>
         </Button>

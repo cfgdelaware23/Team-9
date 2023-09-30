@@ -9,10 +9,10 @@ const Landing = () => {
 
   return (
     <div>
-      <section>
+      <section className = "section-background parallax">
         <Signup />
       </section>
-      <section>
+      <section className = "section-background parallax-about">
         <Aboutus />
       </section>
       
