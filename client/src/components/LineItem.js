@@ -1,9 +1,10 @@
 import React from 'react'
 
 const LineItem = ({item}) => {
+  const checkoutItem = `Name: ${item.item}\tPrice: ${item.total}\tTotal Cost: ${item.total}`
   return (
     <li className = 'item'>
-      <label> {item.title } </label>
+      <label> {checkoutItem}</label>
     </li>
   )
 }

@@ -7,20 +7,22 @@ const Admin = () => {
   const navigate = useNavigate()
   const [ memberID, setMemberID ] = useState()
   const [ fetchError, setFetchError ] = useState()
-  const API_URL = `http://127.0.0.1:5000/user/${memberID}`
+  const [items, setItems] = useState([])
+  
   const handleSubmitID = async(e) => {
-    e.preventDefault();
+    const API_URL = `http://127.0.0.1:5000/user/${memberID}`
     if (!memberID) return;
     try {
       const response = await fetch(API_URL)
       if (!response.ok) throw Error ('Did not receve expected data')
-      const newID = await response.json().membership_id
-      setMemberID(newID)
+      const member = await response.json()
+      setItems(member.purchase_history)
+      console.log(items)
       setFetchError(null)
+      navigate('checkout')
     } catch (err) {
       setFetchError(err.message)
     }
-    setMemberID('');
   }
   return (
     <Routes>
@@ -60,15 +62,14 @@ const Admin = () => {
                             type='text'
                             placeholder='Membership ID here...'
                             required
-                            value={memberID}
-                            onChange={(e) => setMemberID(e.target.value)}
+                            onChange={(e) => { setMemberID(e.target.value)}}
                         />
-                        <Button class='submitButton' type='submit' onClick={() => handleSubmitID()}>
+                        <Button class='submitButton' type='submit' onClick={(e) =>{ e.preventDefault(); handleSubmitID()}}>
                             Submit!
                         </Button>
                     </form>
                 }/>
-            <Route path = 'checkout' element = {<AdminCheckout memberID = {memberID} />}/>
+            <Route path = 'checkout' element = {<AdminCheckout memberID = {memberID} items = {items} setItems={setItems} />}/>
     </Routes>
     
   )
