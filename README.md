@@ -26,3 +26,4 @@ The application allows and end-to-end cycle of customer to cashier friendly user
 5. Open another termincal and navigate to server and run `pip3 install -r requirements.txt`
 6. Finally start the server with `flask run`
 7. Congratulations you can now use The Wilmington Project!
+ <br /> <br /> The code ("Code") in this repository was created solely by the student teams during a coding competition hosted by JPMorgan Chase Bank, N.A. ("JPMC"). JPMC did not create or contribute to the development of the Code. This Code is provided AS IS and JPMC makes no warranty of any kind, express or implied, as to the Code, including but not limited to, merchantability, satisfactory quality, non-infringement, title or fitness for a particular purpose or use.
